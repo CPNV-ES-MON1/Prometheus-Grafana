@@ -93,22 +93,6 @@ scrape_configs:
 
 ![image](https://github.com/user-attachments/assets/62066e78-c85e-42dd-8baa-737c55c7ff31)
 
-### Grafana
-
-- On veut que ces informations s’affichent sur un Dashboard grafana. On ne peut pas utiliser le même Dashboard qu’on a utilsé pour les autres taches prometheus.
-- On doit créer un Dashboard qui est fait pour Windows node exporter, alors pour faire ca il faut aller sur le page `Dashboard` sur grafana :
-
-![image 1](https://github.com/user-attachments/assets/0b59c23c-5c86-43c6-ac3b-0e638a307438)
-
-- Ensuite, il faut appuyer sur `New > New Dashboard`
-- On va appuyer sur `import Dashboard` et vous pouvez coller le `Dashboard ID` suivant :
-
-```bash
-20763
-```
-
-- Maintenant, vous avez juste à lier le Dashboard avec le datasource prometheus et ca devrait afficher les informations sur le client Windows
-
 ## Linux
 
 ### Prérequis
