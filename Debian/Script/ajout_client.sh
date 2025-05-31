@@ -1,3 +1,4 @@
+
 #!/bin/bash
 
 # Demande des valeurs à l'utilisateur
@@ -5,7 +6,7 @@ read -p "Entrez le nom du job (default_name) : " job_name
 read -p "Entrez l'adresse IP (default_ip) : " ip_address
 
 # Chemin du fichier
-file="../Config/prometheus.yml"
+file="Config/prometheus.yml"
 
 # Ajout des lignes à la fin du fichier avec indentation adaptée
 cat <<EOF >> "$file"
