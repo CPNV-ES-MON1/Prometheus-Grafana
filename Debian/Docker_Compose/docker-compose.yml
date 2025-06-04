@@ -14,6 +14,7 @@ services:
       - ./../Config/datasources/datasources.json:/etc/grafana/provisioning/datasources/datasources.yaml
       - ./../Config/dashboards/:/etc/grafana/dashboards
       - ./../Config/dashboards/dashboard.yml:/etc/grafana/provisioning/dashboards/dashboard.yml
+      - ./../Config/alert/:/etc/grafana/provisioning/alerting/
     depends_on:
       - prometheus
 
