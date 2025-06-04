@@ -28,8 +28,17 @@ services:
     volumes:
       - ./../Config/prometheus.yml:/var/stockage/prometheus/prometheus.yml #partie avent les : emplacement du fichier de conf. apres les : emplacement du fichier dans le conteneur
       - prom_data:/var/stockage/prometheus-data
+  jira:
+    image: atlassian/jira-software
+    container_name: jira
+    ports:
+      - 8080:8080
+    restart: unless-stopped
+    volumes:
+      - jira_volume:/var/atlassian/application-data/jira
 
 volumes:
   grafana-storage: {}
   prom_data: {}
   prometheus: {}
+  jira_volume: {}
