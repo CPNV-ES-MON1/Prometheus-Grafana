@@ -1,0 +1,11 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: Discord-Srv
+      receivers:
+        - uid: benxdlt1a3fnke
+          type: discord
+          settings:
+            url: Ajout url webhooks
+            use_discord_username: false
+          disableResolveMessage: false
