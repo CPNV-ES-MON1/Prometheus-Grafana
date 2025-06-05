@@ -1,64 +1,67 @@
 apiVersion: 1
 groups:
-    - orgId: 1
-      name: cpu
-      folder: alert.rules
-      interval: 1m
-      rules:
-        - uid: aenx21y0g32m8e
-          title: High CPU usage
-          condition: C
-          data:
-            - refId: A
-              relativeTimeRange:
-                from: 600
-                to: 0
-              datasourceUid: PBFA97CFB590B2093
-              model:
-                disableTextWrap: false
-                editorMode: code
-                expr: "100 - (avg by (instance, job) (\r\n  rate(node_cpu_secon>
-                fullMetaSearch: false
-                includeNullMetadata: true
-                instant: true
-                intervalMs: 1000
-                legendFormat: __auto
-                maxDataPoints: 43200
-                range: false
-                refId: A
-                useBackend: false
-            - refId: C
-              datasourceUid: __expr__
-              model:
-                conditions:
-                    - evaluator:
-                        params:
-                            - 70
-                        type: gt
-                      operator:
-                        type: and
-                      query:
-                        params:
-                            - C
-                      reducer:
-                        params: []
-                        type: last
-                      type: query
-                datasource:
-                    type: __expr__
-                    uid: __expr__
-                expression: A
-                intervalMs: 1000
-                maxDataPoints: 43200
-                refId: C
-                type: threshold
-          noDataState: NoData
-          execErrState: Error
-          for: 1m
-          annotations:
-            description: Instance {{ $labels.instance }}, {{ $labels.job }} has>
-            summary: CPU usage is above 70%
-          labels: {}
-          isPaused: false
-          notification_settings:
-            receiver: Discord-Srv
+  - orgId: 1
+    name: cpu
+    folder: alert.rules
+    interval: 1m
+    rules:
+      - uid: aenx21y0g32m8e
+        title: High CPU usage
+        condition: C
+        data:
+          - refId: A
+            relativeTimeRange:
+              from: 600
+              to: 0
+            datasourceUid: PBFA97CFB590B2093
+            model:
+              disableTextWrap: false
+              editorMode: code
+              expr: >
+                100 - (avg by (instance, job) (
+                  rate(node_cpu_seconds_total{mode="idle"}[5m])
+                ) * 100)
+              fullMetaSearch: false
+              includeNullMetadata: true
+              instant: true
+              intervalMs: 1000
+              legendFormat: __auto
+              maxDataPoints: 43200
+              range: false
+              refId: A
+              useBackend: false
+          - refId: C
+            datasourceUid: __expr__
+            model:
+              conditions:
+                - evaluator:
+                    params:
+                      - 70
+                    type: gt
+                  operator:
+                    type: and
+                  query:
+                    params:
+                      - C
+                  reducer:
+                    params: []
+                    type: last
+                  type: query
+              datasource:
+                type: __expr__
+                uid: __expr__
+              expression: A
+              intervalMs: 1000
+              maxDataPoints: 43200
+              refId: C
+              type: threshold
+        noDataState: NoData
+        execErrState: Error
+        for: 1m
+        annotations:
+          description: Instance {{ $labels.instance }}, {{ $labels.job }} has high CPU usage.
+          summary: CPU usage is above 70%
+        labels: {}
+        isPaused: false
+        notification_settings:
+          receiver: Discord-Srv
