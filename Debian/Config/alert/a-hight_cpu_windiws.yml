@@ -1,35 +1,28 @@
 apiVersion: 1
 groups:
     - orgId: 1
-      name: linux
+      name: windows
       folder: alert.rules
       interval: 1m
       rules:
-        - uid: feo4yk092ldz4a
-          title: High CPU usage (copy)
+        - uid: deo55ijipo83ke
+          title: Alerte Windows CPU
           condition: C
           data:
             - refId: A
               relativeTimeRange:
-                from: 60
+                from: 600
                 to: 0
               datasourceUid: PBFA97CFB590B2093
               model:
-                disableTextWrap: false
                 editorMode: code
-                expr: |
-                    100 - (avg by (instance, job) (
-                      rate(node_cpu_seconds_total{mode="idle"}[1m])
-                    ) * 100)
-                fullMetaSearch: false
-                includeNullMetadata: true
+                expr: "100 - avg by (instance) (\r\n  rate(windows_cpu_time_total{mode=\"idle\"}[1m])\r\n) * 100"
                 instant: true
                 intervalMs: 1000
                 legendFormat: __auto
                 maxDataPoints: 43200
                 range: false
                 refId: A
-                useBackend: false
             - refId: C
               datasourceUid: __expr__
               model:
@@ -57,9 +50,7 @@ groups:
                 type: threshold
           noDataState: NoData
           execErrState: Error
-          annotations:
-            description: Instance {{ $labels.instance }}, {{ $labels.job }} has high CPU usage.
-            summary: CPU usage is above 70%
+          annotations: {}
           labels: {}
           isPaused: false
           notification_settings:

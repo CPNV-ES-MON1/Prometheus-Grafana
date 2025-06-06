@@ -1,0 +1,35 @@
+apiVersion: 1
+contactPoints:
+    - orgId: 1
+      name: Notification surcharge cpu
+      receivers:
+        - uid: ceo4z6d9tjklcc
+          type: discord
+          settings:
+            url: url_Webook_discord
+            use_discord_username: false
+          disableResolveMessage: false
+        - uid: feo4ygjjml5a9a
+          type: webhook
+          settings:
+            httpMethod: POST
+            password: MDP_utilisateur_zammad
+            payload:
+                template: |-
+                    {
+                        "title": "Test alerte Grafana",
+                        "group_id": 1,
+                        "customer": "email_utilisateur_zammad",
+                        "article": {
+                          "subject": "Alerte test",
+                          "body": "Ceci est un test de création de ticket depuis Grafana",
+                          "type": "note",
+                          "internal": false
+                        },
+                        "priority_id": 2,
+                        "state_id": 1
+                      }
+            url: http://192.168.115.244:8080/api/v1/tickets
+            username: email_utilisateur_zammad
+          disableResolveMessage: false
+
