@@ -6,7 +6,7 @@ contactPoints:
         - uid: ceo4z6d9tjklcc
           type: discord
           settings:
-            url: url_Webook_discord
+            url: https://discord.com/api/webhooks/1374675268270030869/u6m9kU17eq_pxySj-S9JQa6tB1_cba-u4wCUPVViga3h3KlFhV-5MrIxOmUaEr1KLttc
             use_discord_username: false
           disableResolveMessage: false
         - uid: feo4ygjjml5a9a
