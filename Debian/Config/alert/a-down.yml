@@ -56,8 +56,8 @@ groups:
         execErrState: Error
         for: 0m
         annotations:
-          description: Target with job {{ $labels.job }} and instance {{ $labels.instance }} is down (up = 0).
-          summary: 'Target down: {{ $labels.instance }}'
+          description: Target with job {{ $labels.job }} is down (up = 0).
+          summary: 'Target down: {{ $labels.job }}'
         labels: {}
         isPaused: false
         notification_settings:
