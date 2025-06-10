@@ -3,9 +3,11 @@ contactPoints:
     - orgId: 1
       name: Notification surcharge cpu
       receivers:
-        - uid: ceo4z6d9tjklcc
+        - uid: benxdlt1a3fnke
           type: discord
           settings:
+            message: '{{ template "eddy.text" . }}'
+            title: '{{ template "eddy.title" . }}'
             url: https://discord.com/api/webhooks/1374675268270030869/u6m9kU17eq_pxySj-S9JQa6tB1_cba-u4wCUPVViga3h3KlFhV-5MrIxOmUaEr1KLttc
             use_discord_username: false
           disableResolveMessage: false
