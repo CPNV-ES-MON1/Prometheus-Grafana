@@ -58,7 +58,7 @@ groups:
           noDataState: NoData
           execErrState: Error
           annotations:
-            description: Instance {{ $labels.instance }}, {{ $labels.job }} has high CPU usage.
+            description: Instance {{ $labels.job }} has high CPU usage.
             summary: CPU usage is above 70%
           labels: {}
           isPaused: false
