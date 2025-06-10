@@ -1,0 +1,21 @@
+apiVersion: 1
+
+templates:
+  - name: eddy.title
+    type: message
+    template: |
+      {{ define "eddy.title" -}}
+        [{{ .Status | toUpper }}{{ if eq .Status "firing" }} x{{ len .Alerts.Firing }}{{ end }} | {{ .CommonLabels.env | toUpper }}] || {{ .CommonLabels.alertname }}
+      {{- end }}
+
+  - name: eddy.text
+    type: message
+    template: |
+      {{ define "eddy.text" -}}
+      {{- range .Alerts -}}
+        {{ if gt (len .Annotations) 0 }}
+        Summary: {{ .Annotations.summary }}
+        Description: {{ .Annotations.description }}
+        {{ end }}
+      {{- end }}
+      {{- end }}
