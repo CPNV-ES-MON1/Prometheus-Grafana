@@ -24,7 +24,7 @@ git clone https://github.com/CPNV-ES-MON1/Prometheus-Grafana.git
 
 **Gestion des notification**
 
-Ajout de l’URL du `webhooks` dans le fichier `Debian/Config/alert/n-discord.yml` pour les notifications sur discord
+Ajout de l’URL du `webhooks` dans le fichier `Debian/Config/alert/n-contact_point.yml` pour les notifications sur discord
 
 **Modification des adresses IP clients**
 
