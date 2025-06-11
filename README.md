@@ -1,5 +1,11 @@
 # Installation AWS
 
+## Infrastructure
+
+Schéma de l'infrastructure mise en place
+
+![Shemas](https://github.com/user-attachments/assets/57744c04-fe43-4951-a3dd-dfb509a3a55f)
+
 # Installation SRV
 
 ## Prérequis
